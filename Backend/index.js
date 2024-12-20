@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const shortid = require("shortid");
-const URL = require("../models/url");
+const URL = require("./models/url");
 const cors = require("cors");
 const dotenv = require("dotenv");
 
