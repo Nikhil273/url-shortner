@@ -13,7 +13,7 @@ const App = () => {
   useEffect(() => {
     const fetchAllUrls = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/allurls");
+        const response = await axios.get("https://urlbackend-plum.vercel.app/allurls");
         setAllUrls(response.data);
       } catch (err) {
         console.error("Error fetching all URLs:", err);
@@ -34,12 +34,12 @@ const App = () => {
 
     try {
       // Send request to the backend
-      const response = await axios.post("http://localhost:8080/shorten", { long_url: longUrl });
+      const response = await axios.post("https://urlbackend-plum.vercel.app/shorten", { long_url: longUrl });
+      setShortUrl(response.data.short_url);
 
       // Fetch updated list of all URLs after shortening
-      const allUrlsResponse = await axios.get("http://localhost:8080/allurls");
-      setShortUrl(response.data.short_url);
-      setAllUrls(allUrlsResponse.data); // Update state with the retrieved URLs
+      // const allUrlsResponse = await axios.get("https://urlbackend-plum.vercel.app/allurls");
+      // setAllUrls(allUrlsResponse.data); // Update state with the retrieved URLs
     } catch (err) {
       // Handle errors if any
       setError("An error occurred. Please try again.");
@@ -85,11 +85,11 @@ const App = () => {
                   <p>
                     Short URL:{" "}
                     <a
-                      href={`http://localhost:8080/${url.short_code}`}
+                      href={`https://urlbackend-plum.vercel.app/${url.short_code}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      {`http://localhost:8080/${url.short_code}`}
+                      {`https://urlbackend-plum.vercel.app/${url.short_code}`}
                     </a>
                   </p>
                 </li>
