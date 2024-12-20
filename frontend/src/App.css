@@ -1,0 +1,54 @@
+/* App.css */
+
+.app {
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.url-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.url-form input {
+  padding: 10px;
+  font-size: 1rem;
+  margin-right: 10px;
+  width: 300px;
+}
+
+.url-form button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.url-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.result {
+  margin-top: 20px;
+}
+
+.result a {
+  color: #4caf50;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
