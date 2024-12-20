@@ -9,7 +9,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 app.use(cors({
-  origin: "https://url-shortner-git-main-nikhil273s-projects.vercel.app/",  // You can specify the frontend origin here
+  origin: "https://url-shortner-gvdrf65cy-nikhil273s-projects.vercel.app",  // You can specify the frontend origin here
   methods: "GET,POST",              // Allow only GET and POST methods
   allowedHeaders: "Content-Type",   // Allow only Content-Type header
 }));
