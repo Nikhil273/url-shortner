@@ -7,12 +7,21 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 
 dotenv.config();
+const allowedOrigins = ["https://url-shortner-git-main-nikhil273s-projects.vercel.app"];
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: "GET,POST",
+    allowedHeaders: "Content-Type",
+  })
+);
 
-app.use(cors({
-  origin: "https://url-shortner-gvdrf65cy-nikhil273s-projects.vercel.app",  // You can specify the frontend origin here
-  methods: "GET,POST",              // Allow only GET and POST methods
-  allowedHeaders: "Content-Type",   // Allow only Content-Type header
-}));
 app.use(express.json()); // Parse JSON payloads
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded payloads
 
