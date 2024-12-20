@@ -65,6 +65,9 @@ app.get("/:short_code", async (req, res) => {
     return res.status(500).json({ error: "Server error" });
   }
 });
+app.get("/", (req, res) => {
+  res.send("API is Working!");
+})
 
 // Start the server
 app.listen(8080, () => {
