@@ -36,10 +36,9 @@ const App = () => {
       // Send request to the backend
       const response = await axios.post("https://urlbackend-plum.vercel.app/shorten", { long_url: longUrl });
       setShortUrl(response.data.short_url);
-
       // Fetch updated list of all URLs after shortening
-      // const allUrlsResponse = await axios.get("https://urlbackend-plum.vercel.app/allurls");
-      // setAllUrls(allUrlsResponse.data); // Update state with the retrieved URLs
+      const allUrlsResponse = await axios.get("https://urlbackend-plum.vercel.app/allurls");
+      setAllUrls(allUrlsResponse.data); // Update state with the retrieved URLs
     } catch (err) {
       // Handle errors if any
       setError("An error occurred. Please try again.");
