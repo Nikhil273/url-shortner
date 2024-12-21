@@ -7,21 +7,19 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 
 dotenv.config();
-const allowedOrigins = ["https://url-shortner-git-main-nikhil273s-projects.vercel.app"];
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    methods: "GET,POST",
-    allowedHeaders: "Content-Type",
-  })
-);
-
+app.use(cors({
+  origin: [
+    'https://url-shortner-git-main-nikhil273s-projects.vercel.app',
+    'http://192.168.1.30:3000'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+// Add this after your routes
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Something broke!' });
+});
 app.use(express.json()); // Parse JSON payloads
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded payloads
 
