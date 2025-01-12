@@ -28,7 +28,7 @@ mongoose.connect(process.env.URL, {
 })
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.error("MongoDB connection error:", err));
-
+//code
 // Create a short URL
 app.post("/shorten", async (req, res) => {
   console.log("Request Body:", req.body); // Check if data is coming through
