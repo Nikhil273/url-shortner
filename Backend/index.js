@@ -38,7 +38,7 @@ app.post("/shorten", async (req, res) => {
 
   try {
     await newURL.save();
-    res.json({ short_url: `http://localhost:8080/${short_code}` });
+    res.json({ short_url: `https://urlbackend-plum.vercel.app/${short_code}` });
   } catch (err) {
     console.error("Error while saving to DB:", err);
     res.status(500).json({ error: "An error occurred while creating the short URL." });
@@ -78,6 +78,6 @@ app.get("/", (req, res) => {
 
 // Start the server
 app.listen(8080, () => {
-  console.log("Server running on http://localhost:8080");
+  console.log("Server running on https://urlbackend-plum.vercel.app");
 });
 
